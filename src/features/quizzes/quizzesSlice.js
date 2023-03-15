@@ -13,6 +13,6 @@ export const quizzesSlice = createSlice({
 })
 
 export const selectQuizzes = (state) => state.quizzes.quizzes;
-
+export const {addQuizz} = quizzesSlice.actions;
 
 export default quizzesSlice.reducer;
