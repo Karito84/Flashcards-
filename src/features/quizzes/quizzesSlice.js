@@ -1,27 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addQuizzId } from "../topics/topicsSlice";
+import { addQuizId } from "../topics/topicsSlice";
 
 //thunk action creator, it will be dispatched when a user creates a new quizz
-export const createQuizz = (payload) => {
+export const addQuizForTopicId = (payload) => {
     return (dispatch) => {
-        dispatch(addQuizz(payload));
-        dispatch(addQuizzId(payload));
+        dispatch(addQuiz(payload));
+        dispatch(addQuizId(payload));
     }
 }
 
 export const quizzesSlice = createSlice({
     name: "quizzes",
-    initialState: {
-        quizzes: {}
-    },
+    initialState: { quizzes: {} },
     reducers: {
-        addQuizz: (state, action) => {
-            state.quizzes[action.payload.quizzId] = action.payload;
+        addQuiz: (state, action) => {
+            state.quizzes[action.payload.id] = action.payload;
         }
     }
 })
 
-export const selectQuizzes = (state) => state.quizzes.quizzes;
-export const {addQuizz} = quizzesSlice.actions;
+export const selectQuizzes = ( state ) => state.quizzes.quizzes;
+export const { addQuiz } = quizzesSlice.actions;
 
 export default quizzesSlice.reducer;
