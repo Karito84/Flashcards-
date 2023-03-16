@@ -5,7 +5,12 @@ export const cardsSlice = createSlice({
     initialState: { cards: {}},
     reducers: {
         addCard: (state, action) => {
-            state.cards[action.payload.id] = action.payload;
+            state.cards[action.payload.id] = {
+                id: action.payload.id,
+                front: action.payload.front,
+                back: action.payload.back
+
+            }
         }
     }    
 })
